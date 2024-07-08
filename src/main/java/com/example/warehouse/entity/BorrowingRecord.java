@@ -16,7 +16,7 @@ public class BorrowingRecord {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @ManyToOne
+    @ManyToOne()
     @JoinColumn(name = "inventory_id")
     private Inventory inventory;
 

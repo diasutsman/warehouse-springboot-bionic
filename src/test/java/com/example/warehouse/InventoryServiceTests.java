@@ -32,5 +32,40 @@ public class InventoryServiceTests {
         assertEquals("Product1", savedInventory.getName());
     }
 
-    // Additional tests
+    @Test
+    public void testIncreaseProduct() {
+        Inventory inventory = new Inventory();
+        inventory.setName("Product1");
+        inventory.setQuantity(10);
+        ProductType productType = new ProductType();
+        productType.setTypeName("Type1");
+        inventory.setProductType(productType);
+
+        Inventory savedInventory = inventoryService.addProduct(inventory);
+
+        savedInventory = inventoryService.increaseProductQuantity(savedInventory.getId(), 5);
+
+        assertEquals(15, savedInventory.getQuantity());
+    }
+
+    @Test
+    public void testBorrowAndReturnProduct() {
+        Inventory inventory = new Inventory();
+        inventory.setName("Product1");
+        inventory.setQuantity(10);
+        ProductType productType = new ProductType();
+        productType.setTypeName("Type1");
+        inventory.setProductType(productType);
+
+        Inventory savedInventory = inventoryService.addProduct(inventory);
+
+        savedInventory = inventoryService.borrowProduct(savedInventory.getId(), 5);
+
+        assertEquals(5, savedInventory.getQuantity());
+
+        savedInventory = inventoryService.returnProduct(savedInventory.getId(), 5);
+
+        assertEquals(10, savedInventory.getQuantity());
+    }
+
 }
