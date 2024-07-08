@@ -7,21 +7,26 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class InventoryService {
-    @Autowired
     private InventoryRepository inventoryRepository;
+
+    public InventoryService(InventoryRepository inventoryRepository) {
+        this.inventoryRepository = inventoryRepository;
+    }
 
     public Inventory addProduct(Inventory inventory) {
         return inventoryRepository.save(inventory);
     }
 
     public Inventory increaseProductQuantity(Long id, int quantity) {
-        Inventory inventory = inventoryRepository.findById(id).orElseThrow(() -> new RuntimeException("Product not found"));
+        Inventory inventory = inventoryRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Product not found"));
         inventory.setQuantity(inventory.getQuantity() + quantity);
         return inventoryRepository.save(inventory);
     }
 
     public Inventory borrowProduct(Long id, int quantity) {
-        Inventory inventory = inventoryRepository.findById(id).orElseThrow(() -> new RuntimeException("Product not found"));
+        Inventory inventory = inventoryRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Product not found"));
         if (inventory.getQuantity() < quantity) {
             throw new RuntimeException("Not enough quantity available");
         }
@@ -30,7 +35,8 @@ public class InventoryService {
     }
 
     public Inventory returnProduct(Long id, int quantity) {
-        Inventory inventory = inventoryRepository.findById(id).orElseThrow(() -> new RuntimeException("Product not found"));
+        Inventory inventory = inventoryRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Product not found"));
         inventory.setQuantity(inventory.getQuantity() + quantity);
         return inventoryRepository.save(inventory);
     }
