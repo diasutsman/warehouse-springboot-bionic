@@ -20,6 +20,4 @@ public class Inventory {
     @JoinColumn(name = "product_type_id")
     private ProductType productType;
 
-    // getters and setters
-
 }

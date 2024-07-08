@@ -1,0 +1,10 @@
+{
+    "productTypes": [
+        {
+            "typeName": "tools"
+        },
+        {
+            "typeName": "materials"
+        }
+    ]
+}
