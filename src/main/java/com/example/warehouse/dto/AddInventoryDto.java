@@ -2,8 +2,6 @@ package com.example.warehouse.dto;
 
 import com.example.warehouse.entity.Inventory;
 import com.example.warehouse.entity.ProductType;
-import com.example.warehouse.entity.Role;
-import com.example.warehouse.entity.User;
 
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;

@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-import com.example.warehouse.entity.Role;
+
 import com.example.warehouse.entity.Roles;
 import com.example.warehouse.repository.RoleRepository;
 import com.fasterxml.jackson.core.type.TypeReference;

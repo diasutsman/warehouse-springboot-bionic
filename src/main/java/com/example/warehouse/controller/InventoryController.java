@@ -9,7 +9,6 @@ import com.example.warehouse.service.InventoryService;
 
 import jakarta.validation.Valid;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -47,6 +46,4 @@ public class InventoryController {
             @RequestBody @Valid ReturnInventoryDto quantity) {
         return ResponseEntity.ok(inventoryService.returnProduct(id, quantity.getQuantity()));
     }
-
-    // Additional endpoints
 }

@@ -2,17 +2,12 @@ package com.example.warehouse.service;
 
 import com.example.warehouse.entity.BorrowingRecord;
 import com.example.warehouse.entity.Inventory;
-import com.example.warehouse.entity.User;
 import com.example.warehouse.repository.BorrowingRecordRepository;
 import com.example.warehouse.repository.InventoryRepository;
 import com.example.warehouse.repository.UserRepository;
 
 import java.time.LocalDateTime;
 import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
